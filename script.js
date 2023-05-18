@@ -18,6 +18,7 @@ const getDataFromAPI = () => {
     let URL = `https://v6.exchangerate-api.com/v6/${APIKey}/latest/${selectedCurrency.value}`
     fetch(URL).then(response => response.json()).then((result) => {
         fetchedData.push(result)
+        console.log(result)
     })
 }
 const getConversion = () => {
@@ -34,7 +35,7 @@ const getConversion = () => {
       <p data-code="${currencyCode}">${currencyCode}</p>  
       </span>  
       <div class="convertedAmount">  
-      ${((rateData[0].conversion_rates[selectedCurrency.value] / rateData[0].conversion_rates[currencyCode]) * conversionVal).toFixed(2)}  
+      ${((rateData[0].conversion_rates[currencyCode]) * conversionVal).toFixed(2)}  
       </div>  
       <div class="conversionData">1 ${selectedCurrency.value} = ${rateData[0].conversion_rates[currencyCode]} ${currencyCode}</div>  
       </div>`
