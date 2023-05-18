@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Convertisseur Devise</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+    <div id="loading">
+        <img src="loader.gif" alt="Loading..." />
+    </div>
+    <div class="mainContainer">
+        <div class="title">Convertisseur Devise</div>
+        <div class="fromCurrencyInput">
+            <span id="flag">
+                <img src="https://flagcdn.com/40x30/fr.png"
+                    alt="Country Flag" />
+                <p>EUR</p>
+                <input type="hidden" id="selectedCurrency" value="EUR" />
+            </span>
+            <input type="number" placeholder="Enter Amount" id="conversionAmount" value="100"
+                onkeydown="getConversion()" />
+        </div>
+        <div class="convertedCurrencyBox">
+            <span></span>
+            <div class="convertedList">
+                <div class="searchBox" style="margin-top: 1rem">
+                    <input type="text" placeholder="Recherche..." class="searchInput" id="convertedFilter" />
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="loadingScreen">
+                    <i class="fa-solid fa-spinner fa-spin"></i>
+                    <p>Loading Data...</p>
+                </div>
+                <div class="notFound">
+                    <i class="fa-solid fa-face-frown"></i>
+                    <h2>No Result Found</h2>
+                    <p>
+                        There are no currency that match your current filters. Try removing
+                        some of them to get better results.
+                    </p>
+                </div>
+                <div class="convertedListTag"></div>
+            </div>
+        </div>
+    </div>
+    <div class="countriesModal">
+        <button class="closeModal"><i class="fa-solid fa-xmark"></i></button>
+        <div class="modalBox">
+            <div class="searchBox">
+                <input type="text" placeholder="Recherche Devise..." class="searchInput" id="searchInp" />
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </div>
+            <div class="notFound">
+                <i class="fa-solid fa-face-frown"></i>
+                <h2>No Result Found</h2>
+                <p>
+                    There are no currency that match your current filters. Try removing
+                    some of them to get better results.
+                </p>
+            </div>
+            <div class="countriesBox"></div>
+        </div>
+    </div>
+    <script src="countriesData.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
